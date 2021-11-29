@@ -980,6 +980,7 @@ function submit_input_prod() {
             quantity_available_product_input.value = '';
             images_product_input.value = '';
             choosen_images_user_input.innerHTML = 'No Images Chosen';
+            alert('Product has been updated Succesfully!')
         }
     }
     else if (prod_images_input.length > 20) {
@@ -1028,6 +1029,7 @@ function submit_input_prod() {
                 images_product_input.value = '';
                 // cross_btn_user_input_add_prod.click();
                 choosen_images_user_input.innerHTML = 'No Images Chosen';
+                alert('New Product added Successfully!')
         }
         else {
             alert('Please fill all the input fields for the new product');
