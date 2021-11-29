@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Ecommerce website</title>
+  <link id="dark_light_mode_toggle_link" rel="stylesheet" href="styles.css" data-mode="light_mode">
+  <link rel="stylesheet" href="image_slider_css.css">
+</head>
+<body>
+
+  
+  <div id="navbar">
+
+    <div id="heading_and_nav">
+      <img id="navbar_small_screen_only_menu" src="images/icon-menu.svg" alt="">
+      <div id="heading">
+        <img src="images/MyLogo.svg" alt="">
+      </div>
+      <div id="nav">
+        <ul>
+          <li style="box-shadow: 0px 2px 0px 0px hsl(26, 100%, 55%);">Home</li>
+          <li>Shoes</li>
+          <li>Jeans</li>
+          <li>Shirts</li>
+          <li>Socks</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="logo_and_cartIcon">
+      <svg onclick="menuPop_or_unPop()" style="cursor: pointer;" fill="#69707D" fill-rule="nonzero" width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"/></svg>  
+      
+      <div id="cart_icon_number_of_prods">3</div>
+      
+      <img id='avatar_image' src="images/My School Image2.png" alt="Avatar" onclick="menuPop_or_unPop()">
+    </div>
+
+  </div>
+
+  <div id="small_screen_alt_navbar_nav_menu_Lv-1">
+
+    <div id="small_screen_alt_navbar_nav_menu">
+      <ul>
+        <li style="box-shadow: 0px 2px 0px 0px hsl(26, 100%, 55%);">Home</li>
+        <li>Shoes</li>
+        <li>Jeans</li>
+        <li>Shirts</li>
+        <li>Socks</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="menu" class="hidden"></div>
+  
+<!-- *********************************************************************************** -->
+
+
+  <div id="add_prod_user_input_div_container_Lv_-1" class="hidden">
+    <div id="add_product_user_input_div">
+
+      <svg id="cross_btn_user_input_add_prod" width="14" height="15" fill="#69707D" fill-rule="evenodd" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" /></svg>
+
+      <img id="info_tagName_image" src="images/info-outline.png" alt="">
+      <div id="info_tagName_div" class="hidden">The TagName is used to refer to product inside the system so if you want to update an existing product then you have to know its TagName. This TagName is Case sensitive and whitespaces do not count as characters. Eg: Try TagName 'shoes' and update anything and leave everything else blank and see the shoes update</div>
+
+      <div id="add_prod_user_input_heading">Add / Update a Product</div>
+
+      <div class="line_user_input">
+        TagName: <input type="text" id="tag_product_input" placeholder="Tag" maxlength="30">
+      </div>
+
+      <div class="line_user_input">
+        Header: <textarea type="text" id="header_product_input" placeholder="Product Name(as displayed)" maxlength="66"></textarea>
+      </div>
+
+      <div class="line_user_input">
+        Sub-Header: <textarea type="text" id="subHeader_product_input" placeholder="Brand-Name" maxlength="30"></textarea>
+      </div>
+
+      <div class="line_user_input">
+        Body: <textarea type="text" id="body_product_input" placeholder="About the Product" maxlength="264"></textarea>
+      </div>
+
+      <div class="line_user_input">
+        Price: <input type="number" id="price_product_input" placeholder="Price" min="0">
+      </div>
+
+      <div class="line_user_input">
+        Quantity Available: <input type="number" id="quantity_available_product_input" placeholder="Quantity" min="1">
+      </div>
+
+      <div id="line_user_input_submit" onclick="Click_images_product_input()">
+        <div> </div>
+        <input id="images_product_input" type="file" class="hidden" accept="image/*" capture multiple >
+        <label for="files" id="images_product_input_label">Select Images</label>
+      </div>
+      <div id="choosen_images_user_input">
+        <!-- This is where choosen images by user will be displayed... -->
+        No Images Chosen
+      </div>
+
+
+      <input id="submit_add_prod_user" type="submit" value="Submit" onclick="submit_input_prod()">
+
+    </div>
+  </div>
+
+  <div id="want_to_add_prod_choice_Lv-1">
+    <div id="want_to_add_prod_choice">
+      <div id="plus_Button_for_add_prod_choice">
+        <img src="images/plus_outline_white.png" alt="Add">
+      </div>
+      <div id="inside_want_to_add_prod_choice">
+        Add a Product
+      </div>
+    </div>
+  </div>
+
+<!-- *********************************************************************************** -->
+
+
+  <div id="Mega_Container">
+
+    <div id="products">
+      <!-- This is where products are placed by the JS -->
+    </div>
+
+
+
+    <div id="container_Lv_minus1" class="hidden">
+      <div id="container_Lv0"  class="hidden">
+  <!-- 
+          <div id="container_Lv1">
+              This is where the images are placed through JS...
+          </div>
+
+
+          Next Button
+          <div id="next_Btn_div" class="invisible">
+              <svg id="next_Btn" stroke="#1D2026" width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+          </div>  
+          
+          Prev Button
+          <div id="prev_Btn_div" class="invisible">
+              <svg id="prev_Btn" stroke="#1D2026" width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
+          </div>
+
+          <div id="radio_Btns_container">
+              This is where the radio buttons come in through JS
+          </div> -->
+
+          <!-- This is for the image slider.... This is made and cleared every time user clicks on main image shown which makes image slider pop up... -->
+
+
+    </div>
+
+
+    
+  </div>
+
+
+<!-- *********************************************************************************** -->
+
+
+  <div id="dark_light_mode_toggler">
+    <img id="toggle_image" src="images/moon-outline.png" alt="">
+  </div>
+
+
+<!-- *********************************************************************************** -->
+
+
+
+  <div id="attribution">
+    <div>
+
+      <!-- LinikedIn -->
+      <a href="https://www.linkedin.com/in/viraj-agarwal-960535219/" target="_blank">
+        <img src="images/LinkedIn Logo.png" alt="">
+      </a>
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/virajagarwal_1" target="_blank">
+        <img src="images/twitter-logo.svg" alt="">
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/virajagarwal_1/" target="_blank">
+        <img src="images/Instagram Logo.png" alt="">
+      </a>
+    </div>  
+    <div id="extra_id">  
+      Coded by <a href="https://www.linkedin.com/in/viraj-agarwal-960535219/" target="_blank">Viraj Agarwal</a>.
+    </div>
+  </div>
+</div>
+
+</body>
+<script src="javascript.js"></script>
+ 
